@@ -1,0 +1,32 @@
+<ion-view view-title="Home">
+  <ion-content>
+  	<div class="list">
+  		<label class="item item-input">
+    		<i class="icon ion-search placeholder-icon"></i>
+    		<input type="text" placeholder="Search an event" ng-model="search">
+  		</label>
+	   </div>
+     <div class="card stable-bg ink ink-dark" ng-repeat="event in events | orderBy:sortDate | filter:search" href="#/app/events/{{event.$id}}">
+       <a class="item item-thumbnail-left" href="#/app/home/event/{{event.$id}}">
+         <img src="/img/FeelLille.png">
+         <h2>{{event.name}}</h2>
+         <p class="icon ion-clock">  {{event.dateBegin}}</p>
+         <p>{{event.category}}</p>
+      </a>
+      <div class="item tabs tabs-secondary tabs-icon-left">
+        <div class="tab-item" ng-click="participate(event.$id)">
+          <i class="icon ion-person-add"></i>
+          Participate
+        </div>
+        <div class="tab-item" ng-click="favorite(event.$id)">
+          <i class="icon ion-star"></i>
+          Favorite
+        </div>
+        <!-- <a class="tab-item" href="#">
+          <i class="icon ion-share"></i>
+          Share
+        </a> -->
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

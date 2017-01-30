@@ -1,0 +1,56 @@
+<ion-view view-title="My Events">
+  <div class="tabs-striped tabs-top  tabs-color-assertive">
+    <div class="tabs">
+      <div class="tab-item" ng-click="switchPF = false">
+        <i class="icon ion-person"></i>
+        Participates
+      </div>
+      <div class="tab-item" ng-click="switchPF = true">
+        <i class="icon ion-star"></i>
+        Favorites
+      </div>
+    </div>
+  </div>
+  <ion-content class="has-tabs-top">
+    <!-- Participate -->
+    <div ng-if="!switchPF">
+
+      <div class="card">
+        <div class="item item-text-wrap text-center">
+          <h2 class="title">Participate</h2>
+        </div>
+      </div>
+      
+      <div class="card stable-bg ink ink-dark" ng-repeat="event in pEvents | orderBy:'finish'" href="#/app/events/{{event.$id}}">
+       <a class="item item-thumbnail-left" href="#/app/home/event/{{event.$id}}">
+         <img src="/img/FeelLille2.jpg">
+         <h2>{{event.name}}</h2>
+         <p class="icon ion-clock">  {{event.dateBegin}}</p>
+         <p>{{event.category}}</p>
+         <p class="button button-small button-assertive" ng-if="event.finish">Previous Event</p>
+       </a>
+      </div>
+    </div>
+    <!-- End Participate -->
+    <!-- Favorite -->
+    <div ng-if="switchPF">
+      
+      <div class="card">
+        <div class="item item-text-wrap text-center">
+          <h2 class="title">Favorite</h2>
+        </div>
+      </div>
+
+      <div class="card stable-bg ink ink-dark" ng-repeat="event in fEvents | orderBy:'finish'" href="#/app/events/{{event.$id}}">
+       <a class="item item-thumbnail-left" href="#/app/home/event/{{event.$id}}">
+         <img src="/img/FeelLille2.jpg">
+         <h2>{{event.name}}</h2>
+         <p class="icon ion-clock">  {{event.dateBegin}}</p>
+         <p>{{event.category}}</p>
+         <p class="button button-small button-assertive" ng-if="event.finish">Previous Event</p>
+       </a>
+      </div>
+    </div>
+    <!-- End Favorite -->
+  </ion-content>
+</ion-view>

@@ -1,0 +1,16 @@
+<ion-view view-title="Category">
+  <ion-content>
+
+	<div class="card">
+		<div class="item item-text-wrap">
+		Choose your Home Categories filter
+		</div>
+	</div>
+    <ion-list ng-repeat="category in categories">
+	    <ion-toggle ng-model="category.checked">
+	    	{{category.name}}
+	    </ion-toggle>
+    </ion-list>
+
+  </ion-content>
+</ion-view>

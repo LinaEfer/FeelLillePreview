@@ -1,0 +1,60 @@
+<ion-modal-view>
+  <ion-header-bar>
+    <h1 class="title">Login</h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeLogin()">Close</button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+    <div ng-show="switchLogin">
+      <div class="list">
+        <label class="item item-input">
+          <span class="input-label">E-mail</span>
+          <input type="email" ng-model="loginData.email">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Password</span>
+          <input type="password" ng-model="loginData.password">
+        </label>
+        <label class="item">
+          <button class="button button-block button-positive" ng-click="doLogin()">Log in</button>
+        </label>
+      </div>
+
+      </div>
+      <label class="item" ng-show="switchLogin">
+        <button class="button button-block button-assertive" ng-click="switchLogin = !switchLogin">Sign-up</button>
+      </label>
+      <form ng-submit="doRegister()" ng-hide="switchLogin">
+        <div class="list">
+          <label class="item item-input">
+            <span class="input-label">Username</span>
+            <input class="md-input" type="text" ng-model="registerData.username">
+          </label>
+          <label class="item item-input">
+            <span class="input-label">E-mail</span>
+            <input class="md-input" type="text" ng-model="registerData.email">
+          </label>
+          <label class="item item-input">
+            <span class="input-label">Password</span>
+            <input type="password" ng-model="registerData.password">
+          </label>
+          <label class="item item-input">
+            <span class="input-label">Repeat password</span>
+            <input type="password" ng-model="registerData.password2">
+          </label>
+        </div>
+        <label class="item">
+          <button class="button button-block button-positive" type="submit" ng-disabled="registerData.password != registerData.password2">Sign-up</button>
+        </label>
+      </form>
+      <label class="item" ng-hide="switchLogin">
+        <button class="button button-block button-assertive" ng-click="switchLogin = !switchLogin">Cancel</button>
+      </label>
+      <div class="button-bar social-login" ng-show="switchLogin">
+        <button ng-click="loginWithGoogle()" class="button button-small button-border icon-left ion-social-google button-assertive-900">Google+</button>
+        <button ng-click="loginWithFacebook()" class="button button-small button-border icon-left ion-social-facebook button-positive-900">Facebook</button>
+      </div>
+
+  </ion-content>
+</ion-modal-view>

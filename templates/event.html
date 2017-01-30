@@ -1,0 +1,40 @@
+<ion-view view-title="Event">
+  <ion-content>
+    <div class="list card">
+      <div class="item item-avatar">
+        <img src="/img/FeelLille.png">
+        <h2>{{event.name}}</h2>
+        <p>{{event.dateBegin}}</p>
+      </div>
+      <div class="item item-body">
+        <!-- <img class="full-image" src="/img/FeelLille3.jpg"> -->
+
+        <p>
+          <h2>{{event.name}}</h2>
+          {{event.description}}
+        </p>
+        <p>
+          Location : <strong>{{event.place}}</strong>
+        </p>
+        <p>
+          <a href="#" class="subdued">{{pNumber}} Participate</a>
+        </p>
+        <br />
+      </div>
+	  </div>
+  </ion-content>
+  <div class="tabs tabs-striped tabs-icon-left">
+    <div class="tab-item" ng-click="participate()">
+      <i class="icon ion-person-add"></i>
+      Participate
+    </div>
+    <div class="tab-item" ng-click="favorite()">
+      <i class="icon ion-star"></i>
+      Favorite
+    </div>
+    <!-- <a class="tab-item" href="#">
+      <i class="icon ion-share"></i>
+      Share
+    </a> -->
+  </div>
+</ion-view>

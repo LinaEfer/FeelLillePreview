@@ -1,0 +1,23 @@
+<ion-view view-title="Search">
+  <ion-content>
+    <div class="list list-inset">
+  		<label class="item item-input">
+    		<i class="icon ion-search placeholder-icon"></i>
+    		<input type="text" placeholder="Search" ng-model="allSearch">
+  		</label>
+  		<div class="card stable-bg ink ink-dark" ng-repeat="event in allEvents | filter:allSearch" href="#/app/events/{{event.$id}}">
+	       <a class="item item-thumbnail-left" href="#/app/home/event/{{event.$id}}">
+	         <img src="/img/FeelLille.png">
+	         <h2>{{event.name}}</h2>
+	         <p class="icon ion-clock">  {{event.dateBegin}}</p>
+	         <p>{{event.category}}</p>
+	         <p class="button button-small button-assertive" ng-if="event.finish">Previous Event</p>
+	      </a>	
+	        <!-- <a class="tab-item" href="#">
+	          <i class="icon ion-share"></i>
+	          Share
+	        </a> -->
+      	</div>
+	</div>
+  </ion-content>
+</ion-view>
