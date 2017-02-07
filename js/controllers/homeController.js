@@ -17,7 +17,8 @@
     console.log($scope.events);
 
     $scope.sortDate = function(event) {
-
+      if (event.dateBegin == "")
+	return "";
       var date = event.dateBegin.split(' ');
       var month = "";
       if (date[1] == "janvier")
@@ -44,6 +45,7 @@
         month = "10";
       if (date[1] == "décembre")
         month = "11";
+      console.log(date);
       var date2 = new Date(date[2], month, date[0], date[3].split(':')[0], date[3].split(':')[1]);
       console.log(date2)
       return date2;
